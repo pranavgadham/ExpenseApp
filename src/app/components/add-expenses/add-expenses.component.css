@@ -1,0 +1,24 @@
+.formAcction{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.formButton{
+    width: 100%;
+    padding: 10px;
+}
+
+.example-form {
+    width: 100%;
+}
+  
+.example-full-width {
+    width: 100%;
+}
+
+.margin {
+    margin: 2px;
+}

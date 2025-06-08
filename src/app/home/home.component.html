@@ -1,0 +1,7 @@
+
+<mat-toolbar>
+    <span>Expenses</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button (click)="openDialog('100ms', '100ms')">Add Expense</button>
+</mat-toolbar>
+<app-expensetable [expenses]="expenses"></app-expensetable>

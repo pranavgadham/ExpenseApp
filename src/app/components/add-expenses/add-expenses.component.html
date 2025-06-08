@@ -1,0 +1,56 @@
+
+<h1 mat-dialog-title>Add Expense</h1>
+<div mat-dialog-content class="expenseForm">
+  <form
+    class="example-form"
+    [formGroup]="addExpenseForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field class="example-full-width" appearance="outline" [ngStyle]="{'margin': '5px'}">
+      <mat-label>Enter Expense Name</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Grocery"
+        type="text"
+        required
+        [formControl]="addExpenseForm.controls['name']"
+      />
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline" [ngStyle]="{'margin': '5px'}">
+      <mat-label>Enter Amount</mat-label>
+      <input
+        matInput
+        type="number"
+        required
+        [formControl]="addExpenseForm.controls['amount']"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="example-full-width" [ngStyle]="{'margin': '5px'}">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [formControl]="addExpenseForm.controls['date']"
+        required
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div mat-dialog-actions class="formAcction">
+      <button mat-button class="formButton" (click)="dialogRef.close()" type="button">Cancel</button>
+      <button
+        mat-button
+        class="formButton"
+        [ngStyle]="{ 'background-color': '#3f51b5', color: 'white' }"
+        type="submit"
+        [disabled]="!addExpenseForm.valid"
+      >
+        Add
+      </button>
+    </div>
+  </form>
+</div>

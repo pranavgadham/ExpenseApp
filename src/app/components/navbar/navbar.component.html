@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <span>Expense Tracker</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-raised-button
+    [ngStyle]="{ 'background-color': 'white', color: '#3f51b5' }"
+    [routerLink]="'signup'"
+    *ngIf="!isLoggedIn"
+  >
+    Sign Up
+  </button>
+  <button
+    mat-raised-button
+    color="warn"
+    *ngIf="isLoggedIn"
+    type="button"
+    (click) = "logout()"
+  >
+    Logout
+  </button>
+</mat-toolbar>

@@ -1,3 +1,8 @@
 .example-spacer {
     flex: 1 1 auto;
 }
+
+.paginator{
+    padding: 16px;
+    margin: 0px 20px 20px 20px;
+}

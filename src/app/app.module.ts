@@ -17,13 +17,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppService } from './app.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ExpensetableComponent } from './components/expensetable/expensetable.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddExpensesComponent } from './components/add-expenses/add-expenses.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
+import { ExpensetableComponent } from './components/expensetable/expensetable.component';
 
 
 
@@ -34,8 +35,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     LoginComponent,
     SignupComponent,
     NavbarComponent,
-    ExpensetableComponent,
-    AddExpensesComponent
+    AddExpensesComponent,
+    ExpensetableComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
@@ -65,6 +67,11 @@ export interface BackendResponse {
   success: boolean;
   message?: string;
   data?: Array<Expense>;
+  pagination?: {
+        currentPage: number,
+        totalPages: number,
+        totalItems: number
+    }
 }
 
 export interface User{

@@ -27,8 +27,8 @@ export class AppService {
     return this.http.post<BackendResponse>('http://localhost:3000/api/users/signup', data, { withCredentials: true });
   }
 
-  getExpenses():Observable<BackendResponse>{
-    return this.http.get<BackendResponse>('http://localhost:3000/api/expenses/all',{withCredentials:true});
+  getExpenses(url: string):Observable<BackendResponse>{
+    return this.http.get<BackendResponse>(url,{withCredentials:true});
   }
 
   postExpenses(data: Expense):Observable<BackendResponse>{

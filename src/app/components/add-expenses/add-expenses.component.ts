@@ -7,29 +7,31 @@ import { AppService } from 'src/app/app.service';
 @Component({
   selector: 'app-add-expenses',
   templateUrl: './add-expenses.component.html',
-  styleUrls: ['./add-expenses.component.css']
+  styleUrls: ['./add-expenses.component.css'],
 })
 export class AddExpensesComponent {
   constructor(
     public dialogRef: MatDialogRef<AddExpensesComponent>,
     private services: AppService,
-    @Inject(MAT_DIALOG_DATA) public data: { refreshExpenses: () => void }
+    @Inject(MAT_DIALOG_DATA)
+    public data: { refreshExpenses: (url:string) => void, url:string }
   ) {}
-
 
   addExpenseForm = new FormGroup({
     name: new FormControl('', Validators.required),
     amount: new FormControl(0, [Validators.required, Validators.min(0)]),
-    date: new FormControl(new Date, Validators.required),
+    date: new FormControl(new Date(), Validators.required),
   });
 
   onSubmit() {
     const newExpense: Expense = this.addExpenseForm.value as Expense;
 
+    console.log('Form Values:', newExpense);
+
     this.services.postExpenses(newExpense).subscribe({
       next: (response) => {
         if (response.success) {
-          this.data.refreshExpenses();
+          this.data.refreshExpenses(this.data.url);
           this.dialogRef.close();
         } else {
           alert(response.message || 'Failed to add expense.');
@@ -38,7 +40,7 @@ export class AddExpensesComponent {
       error: (error) => {
         console.error('Error adding expense:', error);
         alert('An error occurred while adding the expense.');
-      }
+      },
     });
   }
 }

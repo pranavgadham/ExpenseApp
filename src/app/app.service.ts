@@ -20,11 +20,11 @@ export class AppService {
   }
 
   verifyLogin(data: User): Observable<BackendResponse> {
-    return this.http.post<BackendResponse>('http://localhost:3000/api/users/login', data, { withCredentials: true });
+    return this.http.post<BackendResponse>('https://expensetracker2-cxkt.onrender.com/api/users/login', data, { withCredentials: true });
   }
 
   signup(data: User): Observable<BackendResponse> {
-    return this.http.post<BackendResponse>('http://localhost:3000/api/users/signup', data, { withCredentials: true });
+    return this.http.post<BackendResponse>('https://expensetracker2-cxkt.onrender.com/api/users/signup', data, { withCredentials: true });
   }
 
   getExpenses(url: string):Observable<BackendResponse>{
@@ -32,10 +32,10 @@ export class AppService {
   }
 
   postExpenses(data: Expense):Observable<BackendResponse>{
-    return this.http.post<BackendResponse>('http://localhost:3000/api/expenses/create', data, {withCredentials:true})
+    return this.http.post<BackendResponse>('https://expensetracker2-cxkt.onrender.com/api/expenses/create', data, {withCredentials:true})
   }
 
   logout():Observable<BackendResponse>{
-    return this.http.get<BackendResponse>('http://localhost:3000/api/users/logout', {withCredentials:true})
+    return this.http.get<BackendResponse>('https://expensetracker2-cxkt.onrender.com/api/users/logout', {withCredentials:true})
   }
 }

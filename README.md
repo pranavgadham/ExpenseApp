@@ -1,27 +1,65 @@
 # ExpenseApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+ExpenseApp is a web application built with Angular that allows users to manage their expenses. It includes features like user authentication, expense tracking, and pagination for expense records.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- User authentication with login and signup functionality.
+- Add, view, and paginate expense records.
+- Responsive UI built with Angular Material.
+- Integration with a backend API for data persistence.
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Before setting up the project, make sure you have the following installed:
 
-## Build
+- [Node.js](https://nodejs.org/en/) (v16.x or higher recommended)
+- [Angular CLI](https://angular.io/cli) (v15.2.11 or higher)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Setup Procedure
 
-## Running unit tests
+Follow these steps to set up the ExpenseApp project on your local machine:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 1. Clone the Repository
 
-## Running end-to-end tests
+```bash
+git clone https://github.com/your-username/ExpenseApp.git
+cd ExpenseApp
+```
+### 2. Install Dependencies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install the required packages using npm:
 
-## Further help
+```bash
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 3. Run the Development Server
+
+To start the application in development mode:
+
+```bash
+npm start
+```
+
+Navigate to http://localhost:4200/ in your browser. The application will automatically reload if you make changes to the source files.
+
+## Technologies Used
+
+- Frontend: Angular
+- UI Components: Angular Material
+- HTTP Client: Angular's HttpClientModule
+- Routing: Angular Router
+
+## API Endpoints
+
+### User Routes
+
+- POST /api/users/signup: User signup.
+- POST /api/users/login: User login.
+- GET /api/users/logout: User logout (requires authentication).
+
+## Expense Routes
+
+- POST /api/expenses/create: Add a new expense (requires authentication).
+- GET /api/expenses/all: Get paginated expenses (requires authentication).

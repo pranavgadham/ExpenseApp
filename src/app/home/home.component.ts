@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   dynamicUrl():string{
-    let url: string = `http://localhost:3000/api/expenses/all?page=${this.page}&limit=${this.limit}`;
+    let url: string = `https://expensetracker2-cxkt.onrender.com/api/expenses/all?page=${this.page}&limit=${this.limit}`;
     if(this.sortBy.length){
       url = url + `&sortBy=${this.sortBy}`;
     }
